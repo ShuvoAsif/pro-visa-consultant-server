@@ -90,7 +90,7 @@ async function run() {
         });
 
 
-        app.get('/review', verifyJWT, async (req, res) => {
+        app.get('/myreview', verifyJWT, async (req, res) => {
             const decoded = req.decoded;
 
             if (decoded.email !== req.query.email) {
