@@ -59,6 +59,14 @@ async function run() {
         });
 
 
+        app.get('/servidemo', async (req, res) => {
+            const query = {}
+            const cursor = serviceCollection.find(query);
+            const services = await cursor.toArray();
+            res.send(services.slice(0, 3));
+        });
+
+
         app.post('/service', async (req, res) => {
             const service = req.body;
             const result = await serviceCollection.insertOne(service);
