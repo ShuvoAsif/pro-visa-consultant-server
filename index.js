@@ -36,7 +36,15 @@ async function run() {
         });
 
 
-        // orders api
+
+        app.get('/review', async (req, res) => {
+            const query = {}
+            const cursor = orderCollection.find(query);
+            const orders = await cursor.toArray();
+            res.send(orders);
+        });
+
+
         app.get('/review', async (req, res) => {
             let query = {};
 
